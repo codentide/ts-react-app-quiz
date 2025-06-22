@@ -1,4 +1,5 @@
 @use './base/colors' as c;
+@use './base//media-queries' as mq;
 
 @use './components/Header.scss' as *;
 @use './components/Quiz.scss' as *;
@@ -27,13 +28,7 @@ body::before {
   content: '';
   z-index: -20;
 
-  background: radial-gradient(
-    at left top,
-    c.$color-primary-200 0%,
-    c.$color-neutral-100 20%,
-    c.$color-neutral-200 80%,
-    hsl(54, 32%, 80%)
-  );
+  background: radial-gradient(at left top, c.$color-neutral-100, c.$color-neutral-200);
 }
 
 body::after {
@@ -45,7 +40,7 @@ body::after {
   background: url('/img/background-texture.webp');
   background-size: cover;
 
-  opacity: 0.1;
+  opacity: 0.12;
   pointer-events: none;
   mix-blend-mode: multiply;
 }
@@ -57,29 +52,27 @@ body::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.6rem;
 
   width: 100%;
   min-height: 100dvh;
 
-  &__heading {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+  @include mq.mobile-small {
+    justify-content: start;
+    padding: 10rem 8% 4rem;
+  }
 
-    h1 {
-      font-size: 3.2rem;
-      font-weight: 400;
-      letter-spacing: -3px;
-      text-wrap: nowrap;
+  h1 {
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: -3px;
+    text-wrap: nowrap;
 
-      color: c.$color-neutral-1200;
-    }
-    svg {
-      width: 3.2rem;
-      height: 3.2rem;
+    color: c.$color-neutral-1200;
 
-      border-radius: 0.4rem;
+    @include mq.mobile-small {
+      font-size: 2.4rem;
+      text-wrap: wrap;
     }
   }
 }
@@ -102,11 +95,15 @@ body::after {
   &:hover {
     cursor: pointer;
 
-    background-color: hsl(54, 80%, 64%);
+    background-color: c.$color-primary-600;
     color: c.$color-neutral-1200;
   }
 
   &:active {
     filter: brightness(0.8);
+  }
+
+  @include mq.mobile-small {
+    font-size: 0.92;
   }
 }

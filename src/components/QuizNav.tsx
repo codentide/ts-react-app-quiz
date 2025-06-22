@@ -11,7 +11,7 @@ export const QuizNav = () => {
   const isQuestionAnswered = questions[currentQuestionIndex].selectedAnswer != null
 
   return (
-    <header className="quiz-nav">
+    <div className="quiz-nav">
       <button className="quiz-nav__button" onClick={goPrevQuestion} disabled={currentQuestionIndex === 0}>
         <LeftArrowIcon />
       </button>
@@ -23,6 +23,6 @@ export const QuizNav = () => {
       >
         <RightArrowIcon />
       </button>
-    </header>
+    </div>
   )
 }

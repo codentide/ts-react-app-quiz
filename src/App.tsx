@@ -34,10 +34,7 @@ function App() {
     <>
       <Header />
       <main className="app">
-        <div className="app__heading">
-          {/* <JSIcon /> */}
-          <h1 className="app__title">Quiz Challenge</h1>
-        </div>
+        <h1 className="app__title">Quiz Challenge</h1>
 
         <MainContent />
       </main>

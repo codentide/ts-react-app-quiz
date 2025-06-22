@@ -1,11 +1,11 @@
 export interface Question {
   id: string
   question: string
-  code: string
   answers: string[]
-  selectedAnswer?: number // índice en el array de answers
+  correctAnswer: number
   selectedIsCorrectAnswer?: boolean
-  correctAnswer: number // índice en el array de answers
+  selectedAnswer?: number
+  code?: string
 }
 
 export interface ApiQuestion {

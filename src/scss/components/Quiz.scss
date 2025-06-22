@@ -1,4 +1,5 @@
 @use '../base/colors' as c;
+@use '../base/media-queries' as mq;
 
 .quiz {
   display: flex;
@@ -7,6 +8,10 @@
   gap: 1rem;
 
   width: 600px;
+
+  @include mq.mobile-small {
+    width: 100%;
+  }
 }
 
 .question {
@@ -27,6 +32,10 @@
     p {
       padding: 1.4rem 1.6rem;
       line-height: 1.5;
+
+      @include mq.mobile-small {
+        padding: 1rem;
+      }
     }
   }
 
@@ -39,10 +48,20 @@
 
     list-style: none;
 
+    @include mq.mobile-small {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
     li {
       flex-grow: 1;
       width: calc(50% - 0.1rem);
       min-height: 4rem;
+
+      @include mq.mobile-small {
+        width: 100%;
+        min-height: auto;
+      }
     }
 
     &__button {
@@ -85,10 +104,6 @@
         color: hsl(0, 100%, 12%);
         background-color: hsl(0, 48%, 64%);
       }
-
-      // &:hover {
-      //   filter: brightness(1.2);
-      // }
     }
   }
 }
