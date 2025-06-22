@@ -2,7 +2,7 @@ import { useQuestionStore } from '../store/question'
 import LeftArrowIcon from '../assets/svg/arrow-left.svg?react'
 import RightArrowIcon from '../assets/svg/arrow-right.svg?react'
 
-export const Nav = () => {
+export const QuizNav = () => {
   const goNextQuestion = useQuestionStore((state) => state.goNextQuestion)
   const goPrevQuestion = useQuestionStore((state) => state.goPrevQuestion)
 

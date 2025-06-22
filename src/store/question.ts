@@ -1,29 +1,41 @@
 import { persist } from 'zustand/middleware'
 import type { Question } from '../types'
 import { create } from 'zustand'
-
-const BASE_URL = import.meta.env.VITE_BASE_URL
+import { getQuestionsFromApi } from '../services/questions'
 
 interface State {
   currentQuestionIndex: number
   questions: Question[]
-  getQuestions: (limit: number) => void
+  isLoading: boolean
+  hasError: string | null
+  getQuestions: (limit: number) => Promise<void>
   selectAnswer: (index: number) => void
   goNextQuestion: () => void
   goPrevQuestion: () => void
+  resetQuestions: () => void
 }
 
 export const useQuestionStore = create<State>()(
   persist(
     (set, get) => ({
       questions: [],
+      isLoading: false,
+      hasError: null,
       currentQuestionIndex: 0,
+
       getQuestions: async (limit: number) => {
-        const response = await fetch(BASE_URL + '/questions.json')
-        const data = await response.json()
-        const questions = data.sort(() => Math.random() - 0.5).slice(0, limit)
-        set({ questions })
+        set({ isLoading: true, hasError: null })
+        try {
+          const questions = await getQuestionsFromApi(limit)
+          set({ questions })
+        } catch (error) {
+          console.error('Failed to fetch questions: ', error)
+          set({ questions: [], hasError: 'Failed to fetch questions: See logs' })
+        } finally {
+          set({ isLoading: false })
+        }
       },
+
       selectAnswer: (index: number) => {
         const { questions, currentQuestionIndex } = get()
         const newQuestions = structuredClone(questions)
@@ -38,6 +50,7 @@ export const useQuestionStore = create<State>()(
 
         set({ questions: newQuestions })
       },
+
       goNextQuestion: () => {
         const { currentQuestionIndex, questions } = get()
         const nextQuestion = currentQuestionIndex + 1
@@ -46,6 +59,7 @@ export const useQuestionStore = create<State>()(
           set({ currentQuestionIndex: nextQuestion })
         }
       },
+
       goPrevQuestion: () => {
         const { currentQuestionIndex } = get()
         const prevQuestion = currentQuestionIndex - 1
@@ -54,6 +68,8 @@ export const useQuestionStore = create<State>()(
           set({ currentQuestionIndex: prevQuestion })
         }
       },
+
+      resetQuestions: () => set({ questions: [], currentQuestionIndex: 0 }),
     }),
     { name: 'questions' }
   )
