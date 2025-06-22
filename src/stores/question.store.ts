@@ -1,8 +1,8 @@
-import { persist } from 'zustand/middleware'
 import type { Question } from '../types'
+import { persist } from 'zustand/middleware'
 import { create } from 'zustand'
-import { getQuestionsFromApi } from '../services/questions'
-import { adaptQuestionArray } from '../adapters/question-adapter'
+import { getQuestionsFromApi } from '../services/question.service'
+import { adaptQuestionArray } from '../adapters/question.adapter'
 
 interface State {
   currentQuestionIndex: number

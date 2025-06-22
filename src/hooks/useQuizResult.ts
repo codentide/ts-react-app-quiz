@@ -1,4 +1,4 @@
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 
 export const useQuizResult = (): { correct: number; incorrect: number; message: string } => {
   const questions = useQuestionStore((state) => state.questions)

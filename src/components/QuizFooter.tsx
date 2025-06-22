@@ -1,4 +1,4 @@
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 import { QuizNav } from './QuizNav'
 
 export const QuizFooter = () => {

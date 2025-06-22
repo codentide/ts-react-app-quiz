@@ -1,11 +1,12 @@
 import type { ApiQuestion } from '../types'
 
+// https://opentdb.com/api.php
 const BASE_URL = import.meta.env.VITE_BASE_URL
 
 export const getQuestionsFromApi = async (limit: number): Promise<ApiQuestion[]> => {
   try {
     // difficulty puede ser dado por el usuario
-    const response = await fetch(`${BASE_URL}?difficulty=medium&amount=${limit}`)
+    const response = await fetch(`${BASE_URL}?difficulty=easy&amount=${limit}`)
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }

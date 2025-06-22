@@ -1,9 +1,5 @@
-import { Header } from './components/Header'
-import { Quiz } from './components/Quiz'
-import { StartButton } from './components/StartButton'
-import { useQuestionStore } from './store/question'
-import { QuizStats } from './components/QuizStats'
-import { ResetQuizButton } from './components/QuizFooter'
+import { Header, Quiz, QuizStats, ResetQuizButton, StartButton } from './components'
+import { useQuestionStore } from './stores/question.store'
 
 function MainContent() {
   const questions = useQuestionStore((state) => state.questions)

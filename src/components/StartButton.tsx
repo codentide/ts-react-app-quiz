@@ -1,4 +1,4 @@
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 
 export const StartButton = () => {
   const getQuestions = useQuestionStore((state) => state.getQuestions)

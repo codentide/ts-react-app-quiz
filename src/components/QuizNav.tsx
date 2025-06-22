@@ -1,4 +1,4 @@
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 import LeftArrowIcon from '../assets/svg/arrow-left.svg?react'
 import RightArrowIcon from '../assets/svg/arrow-right.svg?react'
 

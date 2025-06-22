@@ -1,4 +1,4 @@
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 import { Question } from './Question'
 import { QuizFooter } from './QuizFooter'
 

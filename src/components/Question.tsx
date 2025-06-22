@@ -1,5 +1,5 @@
 import type { Question as QuestionType } from '../types'
-import { useQuestionStore } from '../store/question'
+import { useQuestionStore } from '../stores/question.store'
 
 export const Question: React.FunctionComponent<QuestionType> = ({
   question,
