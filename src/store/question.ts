@@ -7,7 +7,7 @@ interface State {
   currentQuestionIndex: number
   questions: Question[]
   isLoading: boolean
-  hasError: string | null
+  error: string | null
   getQuestions: (limit: number) => Promise<void>
   selectAnswer: (index: number) => void
   goNextQuestion: () => void
@@ -20,17 +20,17 @@ export const useQuestionStore = create<State>()(
     (set, get) => ({
       questions: [],
       isLoading: false,
-      hasError: null,
+      error: null,
       currentQuestionIndex: 0,
 
       getQuestions: async (limit: number) => {
-        set({ isLoading: true, hasError: null })
+        set({ isLoading: true, error: null })
         try {
           const questions = await getQuestionsFromApi(limit)
           set({ questions })
         } catch (error) {
           console.error('Failed to fetch questions: ', error)
-          set({ questions: [], hasError: 'Failed to fetch questions: See logs' })
+          set({ questions: [], error: 'Oops! an error occurred while fetching up the questions, check the logs.' })
         } finally {
           set({ isLoading: false })
         }
@@ -69,7 +69,7 @@ export const useQuestionStore = create<State>()(
         }
       },
 
-      resetQuestions: () => set({ questions: [], currentQuestionIndex: 0 }),
+      resetQuestions: () => set({ questions: [], currentQuestionIndex: 0, error: null }),
     }),
     { name: 'questions' }
   )
