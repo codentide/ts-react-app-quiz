@@ -1,10 +1,8 @@
 import type { Question as QuestionType } from '../types'
 import { useQuestionStore } from '../store/question'
-import { Code } from './Code'
 
 export const Question: React.FunctionComponent<QuestionType> = ({
   question,
-  code,
   answers,
   correctAnswer,
   selectedAnswer,
@@ -29,7 +27,7 @@ export const Question: React.FunctionComponent<QuestionType> = ({
     <section className="question">
       <div className="question__question">
         <p>{question}</p>
-        {code && <Code>{code}</Code>}
+        {/* {code && <Code>{code}</Code>} */}
       </div>
 
       <ul className="answer-list">

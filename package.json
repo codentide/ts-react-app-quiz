@@ -1,7 +1,7 @@
 {
   "name": "ts-react-javascript-quiz",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,6 @@
     "@fontsource-variable/roboto-mono": "^5.2.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-syntax-highlighter": "^15.6.1",
     "uuid": "^11.1.0",
     "zustand": "^5.0.5"
   },
