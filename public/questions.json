@@ -1,0 +1,72 @@
+[
+  {
+    "id": "uuid1",
+    "question": "¿Cuál es la salida de este código?",
+    "code": "console.log(typeof NaN)",
+    "answers": ["undefined", "NaN", "string", "number"],
+    "correctAnswer": 3
+  },
+  {
+    "id": "uuid2",
+    "question": "¿Qué valor retorna '3' + 2 en JavaScript?",
+    "code": "console.log('3' + 2)",
+    "answers": ["5", "'32'", "NaN", "undefined"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "uuid3",
+    "question": "¿Cuál es el resultado de 10 % 3 en JavaScript?",
+    "code": "console.log(10 % 3)",
+    "answers": ["3", "1", "0", "Error"],
+    "correctAnswer": 1
+  },
+  {
+    "id": "uuid4",
+    "question": "¿Qué tipo de dato es 'null' en JavaScript?",
+    "code": "console.log(typeof null)",
+    "answers": ["null", "undefined", "object", "number"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "uuid5",
+    "question": "¿Cuál es la salida de console.log(true == '1')?",
+    "code": "console.log(true == '1')",
+    "answers": ["true", "false", "Error", "undefined"],
+    "correctAnswer": 0
+  },
+  {
+    "id": "uuid6",
+    "question": "¿Qué palabra clave se usa para declarar una constante en JavaScript?",
+    "code": "// Declarar una constante",
+    "answers": ["var", "let", "const", "static"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "uuid7",
+    "question": "¿Cómo se accede al primer elemento de un array llamado 'arr'?",
+    "code": "let arr = [10, 20, 30];\n// Acceder al primer elemento",
+    "answers": ["arr[1]", "arr.first()", "arr[0]", "arr.get(0)"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "uuid8",
+    "question": "¿Qué método se usa para añadir un elemento al final de un array?",
+    "code": "let myArr = [1, 2];\n// Añadir 3 al final",
+    "answers": ["unshift()", "pop()", "push()", "splice()"],
+    "correctAnswer": 2
+  },
+  {
+    "id": "uuid9",
+    "question": "¿Cuál de las siguientes opciones es un operador de comparación estricta en JavaScript?",
+    "code": "// Ejemplo de comparación estricta",
+    "answers": ["==", "===", "!=", "="],
+    "correctAnswer": 1
+  },
+  {
+    "id": "uuid12",
+    "question": "¿Qué valor retorna 5 / 0 en JavaScript?",
+    "code": "console.log(5 / 0)",
+    "answers": ["NaN", "0", "Infinity", "Error"],
+    "correctAnswer": 2
+  }
+]

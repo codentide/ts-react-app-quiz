@@ -1,0 +1,13 @@
+@use '../base/colors' as c;
+
+.code {
+  padding: 1.6rem;
+  background-color: c.$color-neutral-1200;
+
+  pre,
+  code {
+    font-family: inherit;
+    font-size: 0.88rem;
+    background-color: transparent !important;
+  }
+}

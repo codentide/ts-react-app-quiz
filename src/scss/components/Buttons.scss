@@ -1,0 +1,28 @@
+@use '../base/colors' as c;
+
+// Reset game
+
+.reset-quiz-button {
+  font-family: inherit;
+  font-weight: 500;
+
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.32rem;
+
+  color: c.$color-neutral-1100;
+  background-color: c.$color-neutral-400;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: c.$color-neutral-1200;
+    color: c.$color-neutral-400;
+  }
+
+  &:disabled {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
