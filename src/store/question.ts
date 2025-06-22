@@ -2,6 +2,7 @@ import { persist } from 'zustand/middleware'
 import type { Question } from '../types'
 import { create } from 'zustand'
 import { getQuestionsFromApi } from '../services/questions'
+import { adaptQuestionArray } from '../adapters/question-adapter'
 
 interface State {
   currentQuestionIndex: number
@@ -27,7 +28,8 @@ export const useQuestionStore = create<State>()(
         set({ isLoading: true, error: null })
         try {
           const questions = await getQuestionsFromApi(limit)
-          set({ questions })
+          const adaptedQuestions = adaptQuestionArray(questions)
+          set({ questions: adaptedQuestions })
         } catch (error) {
           console.error('Failed to fetch questions: ', error)
           set({ questions: [], error: 'Oops! an error occurred while fetching up the questions, check the logs.' })

@@ -1,16 +1,18 @@
-import type { Question } from '../types'
+import type { ApiQuestion } from '../types'
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
 
-export const getQuestionsFromApi = async (limit: number): Promise<Question[]> => {
+export const getQuestionsFromApi = async (limit: number): Promise<ApiQuestion[]> => {
   try {
-    const response = await fetch(BASE_URL + '/questions.json')
+    // difficulty puede ser dado por el usuario
+    const response = await fetch(`${BASE_URL}?difficulty=medium&amount=${limit}`)
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }
     const data = await response.json()
-    const questions = data.sort(() => Math.random() - 0.5).slice(0, limit)
-    return questions
+    // Por la api que usamos ya vienen sorteadas
+    // const questions = data.results.sort(() => Math.random() - 0.5).slice(0, limit)
+    return data.results
   } catch (error) {
     console.error('Error al cargar las preguntas desde la API:', error)
     throw error

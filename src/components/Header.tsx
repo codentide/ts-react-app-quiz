@@ -7,7 +7,7 @@ export const Header = () => {
     <header className="header">
       <div className="title-container">
         <LogoSVG />
-        <h1 className="title-container__title">TS/React Quiz</h1>
+        <h1 className="title-container__title">TS/React App: Quiz</h1>
       </div>
       <div className="author-info">
         <p className="author-info__name">Marco Del Boccio</p>

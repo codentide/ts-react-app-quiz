@@ -31,18 +31,18 @@
   }
 
   .answer-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
 
     margin-top: 1rem;
 
     list-style: none;
 
     li {
-      // width: 0%;
-      flex-grow: 0.5;
+      flex-grow: 1;
+      width: calc(50% - 0.1rem);
+      min-height: 4rem;
     }
 
     &__button {
@@ -50,12 +50,13 @@
       place-items: center;
 
       width: 100%;
-      padding: 1.2rem;
+      height: 100%;
+      padding: 0.8rem;
 
       font-family: inherit;
       font-weight: 400;
       font-size: 1rem;
-      line-height: 1;
+      line-height: 1.2;
 
       border: none;
       border-radius: 0.4rem;

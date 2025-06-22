@@ -29,7 +29,7 @@ export const Question: React.FunctionComponent<QuestionType> = ({
     <section className="question">
       <div className="question__question">
         <p>{question}</p>
-        <Code>{code}</Code>
+        {code && <Code>{code}</Code>}
       </div>
 
       <ul className="answer-list">

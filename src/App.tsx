@@ -2,7 +2,6 @@ import { Header } from './components/Header'
 import { Quiz } from './components/Quiz'
 import { StartButton } from './components/StartButton'
 import { useQuestionStore } from './store/question'
-import JSIcon from './assets/svg/javascript.svg?react'
 import { QuizStats } from './components/QuizStats'
 import { ResetQuizButton } from './components/QuizFooter'
 
@@ -36,8 +35,8 @@ function App() {
       <Header />
       <main className="app">
         <div className="app__heading">
-          <JSIcon />
-          <h1 className="app__title">JavaScript Quiz</h1>
+          {/* <JSIcon /> */}
+          <h1 className="app__title">Quiz Challenge</h1>
         </div>
 
         <MainContent />
