@@ -1,6 +1,109 @@
+@use './base/colors' as c;
+
+@use './components/Header.scss' as *;
+@use './components/Quiz.scss' as *;
+@use './components/Nav.scss' as *;
+@use './components/Code.scss' as *;
+
 * {
   margin: 0;
   padding: 0;
 
   box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  font-family: 'Roboto Mono Variable', monospace;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  content: '';
+  z-index: -20;
+
+  background: radial-gradient(
+    at left top,
+    c.$color-primary-200 0%,
+    c.$color-neutral-100 20%,
+    c.$color-neutral-200 80%,
+    hsl(54, 32%, 80%)
+  );
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  content: '';
+  z-index: -10;
+
+  background: url('/img/background-texture.webp');
+  background-size: cover;
+
+  opacity: 0.1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+//
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: -3px;
+      text-wrap: nowrap;
+
+      color: c.$color-neutral-1200;
+    }
+    svg {
+      width: 3.2rem;
+      height: 3.2rem;
+
+      border-radius: 0.4rem;
+    }
+  }
+}
+
+.start-button {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1;
+
+  padding: 0.64rem 2rem 0.72rem;
+  border: none;
+  border-radius: 0.48rem;
+
+  background-color: c.$color-neutral-1200;
+  color: c.$color-neutral-200;
+
+  transition: background-color 0.4s ease;
+
+  &:hover {
+    cursor: pointer;
+
+    background-color: hsl(54, 80%, 64%);
+    color: c.$color-neutral-1200;
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
 }
