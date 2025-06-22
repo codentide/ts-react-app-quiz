@@ -1,0 +1,16 @@
+.quiz-footer {
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  align-items: center;
+
+  width: 100%;
+
+  .reset-quiz-button {
+    margin-right: auto;
+  }
+
+  .quiz-nav {
+    width: 100%;
+    justify-self: center;
+  }
+}

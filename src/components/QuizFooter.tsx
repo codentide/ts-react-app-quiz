@@ -1,9 +1,11 @@
 import { useQuestionStore } from '../store/question'
+import { QuizNav } from './QuizNav'
 
 export const QuizFooter = () => {
   return (
     <div className="quiz-footer">
-      <ResetQuizButton children="Reset game" />
+      <ResetQuizButton children="Reset Quiz" />
+      <QuizNav />
     </div>
   )
 }

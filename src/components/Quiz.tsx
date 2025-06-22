@@ -1,5 +1,4 @@
 import { useQuestionStore } from '../store/question'
-import { QuizNav } from './QuizNav'
 import { Question } from './Question'
 import { QuizFooter } from './QuizFooter'
 
@@ -10,9 +9,9 @@ export const Quiz = () => {
 
   return (
     <article className="quiz">
-      <QuizNav />
       <Question {...currentQuestion} />
       <QuizFooter />
+      {/* <QuizNav /> */}
     </article>
   )
 }

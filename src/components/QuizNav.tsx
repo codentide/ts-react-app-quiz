@@ -8,6 +8,7 @@ export const QuizNav = () => {
 
   const currentQuestionIndex = useQuestionStore((state) => state.currentQuestionIndex)
   const questions = useQuestionStore((state) => state.questions)
+  const isQuestionAnswered = questions[currentQuestionIndex].selectedAnswer != null
 
   return (
     <header className="quiz-nav">
@@ -18,7 +19,7 @@ export const QuizNav = () => {
       <button
         className="quiz-nav__button"
         onClick={goNextQuestion}
-        disabled={currentQuestionIndex + 1 === questions.length}
+        disabled={currentQuestionIndex + 1 === questions.length || !isQuestionAnswered}
       >
         <RightArrowIcon />
       </button>
